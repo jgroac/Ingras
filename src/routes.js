@@ -2,8 +2,9 @@ import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
+import Layout from './containers/Layout';
+import Login from './components/Login';
 import Profile from './components/profile';
-import Layout from './components/Layout';
 import NotFoundPage from './components/NotFoundPage';
 
 
@@ -14,7 +15,8 @@ const routes = (store) => {
     <Provider store={store}>
       <Router history={history}>
         <Route path="/" component={Layout}>
-          <IndexRoute component={Profile}/>
+          <IndexRoute component={Login}/>
+          <Route path="/profile" component={Profile} />
           <Route path="*" component={NotFoundPage}/>
         </Route>
       </Router>

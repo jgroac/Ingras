@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import userReducer from './userReducer';
 
 function app (state = [], action) {
   switch (action.type) {
@@ -10,7 +11,7 @@ function app (state = [], action) {
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  app
+  user: userReducer
 });
 
 
