@@ -17,9 +17,9 @@ const Nav = (props) => {
             </div>
             <div className="col">
               <nav className="nav justify-content-end">
-                <a className="nav-link nav-icon nav-explore" href="#"></a>
-                <a className="nav-link nav-icon nav-activity" href="#"></a>
-                <a className="nav-link nav-icon nav-profile" href="#"></a>
+                <a className="nav-link nav-icon sprite-explore" href="#"></a>
+                <a className="nav-link nav-icon sprite-activity" href="#"></a>
+                <a className="nav-link nav-icon sprite-profile" href="#"></a>
               </nav>
             </div>
           </div>
