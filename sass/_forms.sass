@@ -1,0 +1,80 @@
+
+.search-input
+  border: solid 1px #dbdbdb;
+  border-radius: 3px
+  position: relative
+  width: 215px
+
+  input
+    border: none
+    background: transparent
+    outline: 0
+    font-size: 14px
+
+  input:focus + .search-input__placeholder
+    display: none
+
+  .spinner, .list__holder
+    display: none
+
+  &:before
+    content: ''
+    position: absolute
+    left: -15px
+    top: 0
+    @extend .sprite-icon
+    @extend .sprite-search
+
+
+
+
+.search-input__placeholder
+    position: absolute
+    background: #fafafa
+    box-sizing: border-box
+    color: #999
+    cursor: text
+    font-size: 13px
+    font-weight: 300
+    text-align: center
+    width: 100%
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    z-index: 3
+
+
+.search-input__list-holder
+  position: absolute
+  background: white
+  border-radius: 3px
+  border: 1px solid #e6e6e6
+  box-shadow: 0 0 5px rgba(0,0,0,.0975)
+  left: -10px
+  top: 45px
+  width: 234px
+  z-index: 3
+
+  &:before
+    position: absolute
+    background: white
+    border-left: 1px solid #e6e6e6
+    border-radius: 3px
+    border-top: 1px solid #e6e6e6
+    content: ''
+    display: block
+    height: 15px
+    left: calc(50% - 7px)
+    top: -7px
+    transform: rotate(45deg)
+    width: 15px
+    z-index: -1
+
+  .list__elements
+    display: none
+    box-sizing: border-box
+    height: 364px
+    list-style: none
+    overflow-y: scroll
+    width: 100%

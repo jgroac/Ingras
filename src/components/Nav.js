@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import SearchInput from './SearchInput';
 
 const Nav = (props) => {
   return (
@@ -13,7 +14,7 @@ const Nav = (props) => {
               <Link to="/" className="navbar-brand brand-logo" href="#">Instagram</Link>
             </div>
             <div className="col justify-content-center">
-              <input className="form-control mr-sm-2" type="text" placeholder="Search"/>
+              <SearchInput />
             </div>
             <div className="col">
               <nav className="nav justify-content-end">
