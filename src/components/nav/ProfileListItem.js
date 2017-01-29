@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const ProfileListItem = (props) => (
   <li key={props.user.id}>
     <Link
-      to={`/profile/${props.user.username}`}
+      to={`/profile/${props.user.id}`}
       className="d-flex justify-content-start p-2 list__element"
     >
       <div className="col-4">

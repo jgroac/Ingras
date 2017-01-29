@@ -1,4 +1,6 @@
 import request from 'reqwest';
+import { fetchUserPosts } from './postActions';
+import auth from '../utils/auth';
 
 import {
   SET_CURRENT_PROFILE,
@@ -24,14 +26,31 @@ export const receiveUserProfile = (profile) => ({
 export const fetchUserProfile = user => dispatch => {
   dispatch(requestUserProfile(user));
   return request({
-    url: `//api.instagram.com/v1/users/${user}/?access_token=199403748.ec2cfbd.2571be47025648e49f14a18bcab79545`,
+    url: `//api.instagram.com/v1/users/${user}/?access_token=${auth.getToken()}`,
     type: 'jsonp',
     method: 'get'
   })
-    .then( (response) => {console.log(response); dispatch(receiveUserProfile(response.data)); })
+    .then( (response) => {
+      dispatch(receiveUserProfile(response.data));
+      return response.data;
+    })
+    .then( data => dispatch(fetchUserPosts(data.id)))
     .catch( (error) => console.log(error));
 };
 
+const shouldFetchProfile = (state, userID) => {
+  const profile = state.profile.currentProfile;
 
+  if (!profile) return true;
+  if (profile.onFetch) return false;
+  if (userID !== profile.id) return true;
 
+  return false;
+};
+
+export const fetchUserProfileIfNeeded = user => (dispatch, getState) => {
+  if (shouldFetchProfile(getState(), user)) {
+    return dispatch(fetchUserProfile(user));
+  }
+};
 

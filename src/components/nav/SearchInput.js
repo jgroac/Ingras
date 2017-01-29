@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileList from './ProfileList';
 import request from 'reqwest';
-import data from '../../testData';
+import auth from '../../utils/auth';
 
 
 class SearchInput extends React.Component {
@@ -9,23 +9,29 @@ class SearchInput extends React.Component {
     super(props);
     this.state = {
       currentSearch: '',
-      usersFinded: [],
+      usersFinded: null,
       onFetch: false,
       onFocus: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   handleChange (event) {
-    this.setState({ currentSearch: event.target.value, onFetch: true }, () => {
+    const value = event.target.value;
+
+    this.setState({ currentSearch: value }, () => {
+      if (value === '' || this.state.onFetch) return;
+
+      this.setState({ onFetch: true });
       request({
-        url: 'https://api.instagram.com/v1/users/search?q=joser&access_token=199403748.ec2cfbd.2571be47025648e49f14a18bcab79545',
+        url: `https://api.instagram.com/v1/users/search?q=${value}&access_token=${auth.getToken()}`,
         type: 'jsonp',
         method: 'get'
       }).then(
-        (response) => this.setState({ usersFinded: data, onFetch: false })
+        (response) => this.setState({ usersFinded: response.data, onFetch: false })
       ).catch(
         (error) => console.log(error)
       );
@@ -34,8 +40,11 @@ class SearchInput extends React.Component {
   }
 
   handleFocus () {
-    const { onFocus } = this.state;
-    setTimeout( () => this.setState({ onFocus: !onFocus }), 180 );
+    this.setState({ onFocus: true });
+  }
+
+  handleBlur () {
+    setTimeout( () => this.setState({ onFocus: false }), 180 );
   }
 
   render () {
@@ -47,7 +56,7 @@ class SearchInput extends React.Component {
           value={this.state.currentSearch}
           onChange={this.handleChange}
           onFocus={this.handleFocus}
-          onBlur={this.handleFocus}
+          onBlur={this.handleBlur}
           className="pl-4 pr-1"
           type="text"
           id="search"
@@ -62,7 +71,7 @@ class SearchInput extends React.Component {
         <span className={`spinner ${onFetch ? 'd-block' : null}`}>
           <img src={require('../../../public/default.gif')} />
         </span>
-        <ProfileList show={usersFinded.length > 0 && onFocus} users={usersFinded} />
+        <ProfileList show={usersFinded && onFocus} users={usersFinded} />
       </div>
     );
   }

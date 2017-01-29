@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUserProfile } from '../../actions/profileActions';
-import { fetchUserPosts } from '../../actions/postActions';
+import { fetchUserProfileIfNeeded } from '../../actions/profileActions';
 import ProfileHeader from './ProfileHeader';
 import ProfilePosts from './ProfilePosts';
 
 
 class Profile extends Component {
   componentDidMount (){
-    this.props.fetchProfile('199403748').then(
-      () => this.props.fetchMedia('199403748')
-    );
+    const userID = this.props.params.id;
+    this.props.fetchUserProfileIfNeeded(userID);
   }
+
+  componentWillReceiveProps (nextProps) {
+    const nextUser = nextProps.params.id;
+    this.props.fetchUserProfileIfNeeded(nextUser);
+  }
+
   render () {
     return (
       <div className="container-fluid">
@@ -35,8 +39,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchProfile: (user) => dispatch(fetchUserProfile(user)),
-  fetchMedia: (user) => dispatch(fetchUserPosts(user))
+  fetchUserProfileIfNeeded: (user) => dispatch(fetchUserProfileIfNeeded(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

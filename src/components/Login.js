@@ -2,7 +2,7 @@ import React from 'react';
 
 const Login = (props) => {
   const clientID = 'ec2cfbd9b1d54eda80f5e9021f977868';
-  const redirectURI = 'http://localhost:8080/profile';
+  const redirectURI = 'http://localhost:8080/dashboard';
   const uri = `https://api.instagram.com/oauth/authorize/?client_id=${clientID}&redirect_uri=${redirectURI}&response_type=token&scope=public_content`;
   return (
     <div>

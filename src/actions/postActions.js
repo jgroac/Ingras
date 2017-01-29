@@ -1,4 +1,6 @@
 import request from 'reqwest';
+import auth from '../utils/auth';
+
 import {
   REQUEST_USER_MEDIA,
   RECEIVE_USER_MEDIA
@@ -18,7 +20,7 @@ export const receiveUserMedia = (media) => ({
 export const fetchUserPosts = user => dispatch => {
   dispatch(requestUserMedia(user));
   return request({
-    url: `//api.instagram.com/v1/users/${user}/media/recent/?access_token=199403748.ec2cfbd.2571be47025648e49f14a18bcab79545`,
+    url: `//api.instagram.com/v1/users/${user}/media/recent/?access_token=${auth.getToken()}`,
     type: 'jsonp',
     method: 'get'
   })

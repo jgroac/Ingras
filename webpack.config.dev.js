@@ -11,7 +11,7 @@ module.exports = {
   ],
   output: {
     path: assetsPath,
-    publicPath: 'http://localhost:8080/',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   module: {

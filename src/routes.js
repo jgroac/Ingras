@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Profile from './components/profile';
 import NotFoundPage from './components/NotFoundPage';
 
+const dashboard = () => <div></div>;
 
 const routes = (store) => {
   const history = syncHistoryWithStore(browserHistory, store);
@@ -16,7 +17,8 @@ const routes = (store) => {
       <Router history={history}>
         <Route path="/" component={Layout}>
           <IndexRoute component={Login}/>
-          <Route path="/profile" component={Profile} />
+          <Route path="/dashboard" component={dashboard} />
+          <Route path="/profile/:id" component={Profile} />
           <Route path="*" component={NotFoundPage}/>
         </Route>
       </Router>
