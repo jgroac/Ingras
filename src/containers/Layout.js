@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/userActions';
 import { connect } from 'react-redux';
 
-import Nav from '../components/Nav';
+import Nav from '../components/nav';
 import Footer from '../components/Footer';
 
 class Layout extends React.Component {
