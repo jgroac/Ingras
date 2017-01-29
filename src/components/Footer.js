@@ -14,7 +14,7 @@ const options = [
 
 const Footer = (props) => {
   return (
-    <footer className="container">
+    <footer className="container pb-5">
       <div className="row">
         <div className="col-9">
           <ul className="nav">
