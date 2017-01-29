@@ -1,17 +1,13 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import userReducer from './userReducer';
+import userReducer from './user';
+import profileReducer from './profile';
 
-function app (state = [], action) {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  user: userReducer
+  user: userReducer,
+  profile: profileReducer
 });
 
 
