@@ -14,6 +14,5 @@ const store = createStore(
   composeEnhancers(applyMiddleware(reduxThunk))
 );
 
-store.dispatch({type: 'ADD_TODO', todo: {}});
 
 export default store;
