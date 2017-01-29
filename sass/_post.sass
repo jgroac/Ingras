@@ -1,0 +1,45 @@
+
+
+.post
+  box-sizing: border-box
+  display: block
+  margin-left: 15px
+  padding: 0
+  position: relative
+
+  img
+    max-width: 100%
+
+  &:first-child
+    margin: 0
+
+  &:hover
+    .post__overlay
+      visibility: visible
+
+.post__video
+  position: absolute
+  top: 0
+  right: 0
+
+
+
+.post__overlay
+  position: absolute
+  background-color: rgba(0, 0, 0, 0.35)
+  bottom: 0
+  left: 0
+  right: 0
+  top: 0
+  visibility: hidden
+  z-index: 5
+
+  .overlay__content
+    list-style: none
+    margin-top: 50%
+    text-align: center
+
+    .likes, .comments
+      color: white
+      display: inline-block
+      font-weight: 700
