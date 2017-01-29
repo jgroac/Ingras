@@ -13,11 +13,15 @@
     width: 100%
     box-sizing: border-box
 
-  input:focus + .search-input__placeholder
+  input:focus + .search-input__placeholder, list__holder
     display: none
 
-  .spinner, .list__holder
+  .spinner
     display: none
+    position: absolute
+    right: 0
+    top: 0
+    z-index: 5
 
   &:before
     content: ''
@@ -80,3 +84,14 @@
     list-style: none
     overflow-y: scroll
     width: 100%
+    padding-left: 0
+
+
+    .list__element
+      font-size: 13px
+      boder-bottom: 1px solid #e6e6e6
+      text-overflow: ellipsis
+      text-decoration: none
+      color: #262626
+      &:hover
+        background: lighten(whitesmoke, 2)
