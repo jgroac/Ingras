@@ -3,7 +3,8 @@ import auth from '../utils/auth';
 
 import {
   REQUEST_USER_MEDIA,
-  RECEIVE_USER_MEDIA
+  RECEIVE_USER_MEDIA,
+  SHOW_ALL_MEDIA,
 } from '../constants/actionTypes';
 
 export const requestUserMedia = user => ({
@@ -16,6 +17,10 @@ export const receiveUserMedia = (media) => ({
   media
 });
 
+export const showAllMedia = () => ({
+  type: SHOW_ALL_MEDIA
+});
+
 
 export const fetchUserPosts = user => dispatch => {
   dispatch(requestUserMedia(user));
@@ -26,4 +31,13 @@ export const fetchUserPosts = user => dispatch => {
   })
     .then( response => dispatch(receiveUserMedia(response.data)))
     .catch( (error) => console.log(error));
+};
+
+export const getVisiblePosts = (posts) => {
+  if (!posts.posts || posts.onFetch) return posts.posts;
+
+  return posts.posts.filter((post, index) => {
+    if (!posts.showAll & index > 11) return false;
+    return true;
+  });
 };

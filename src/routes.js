@@ -7,7 +7,7 @@ import Login from './components/Login';
 import Profile from './components/profile';
 import NotFoundPage from './components/NotFoundPage';
 
-const dashboard = () => <div></div>;
+const dashboard = () => <div className="content"></div>;
 
 const routes = (store) => {
   const history = syncHistoryWithStore(browserHistory, store);

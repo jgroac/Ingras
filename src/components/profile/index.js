@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUserProfileIfNeeded } from '../../actions/profileActions';
+import { fetchUserProfileIfNeeded, } from '../../actions/profileActions';
+import { showAllMedia, getVisiblePosts } from '../../actions/postActions';
 import ProfileHeader from './ProfileHeader';
 import ProfilePosts from './ProfilePosts';
 
@@ -27,7 +28,11 @@ class Profile extends Component {
         </div>
         <div className="container post-container">
           { this.props.posts
-            ? <ProfilePosts posts={this.props.posts} />
+            ? <ProfilePosts
+                posts={this.props.posts}
+                showMoreMedia={this.props.showMoreMedia}
+                showAll={this.props.showAll}
+              />
             : null
           }
         </div>
@@ -37,11 +42,13 @@ class Profile extends Component {
 }
 const mapStateToProps = (state) => ({
   currentProfile: state.profile.currentProfile,
-  posts: state.posts.posts
+  posts: getVisiblePosts(state.posts),
+  showAll: state.posts.showAll
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUserProfileIfNeeded: (user) => dispatch(fetchUserProfileIfNeeded(user))
+  fetchUserProfileIfNeeded: (user) => dispatch(fetchUserProfileIfNeeded(user)),
+  showMoreMedia: () => dispatch(showAllMedia())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

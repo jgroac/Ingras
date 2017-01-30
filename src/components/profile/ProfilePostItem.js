@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProfilePostItem = (props) => (
-  <div className="col-4 mb-4">
+  <div className="col-4 mb-4 post-mobile">
       <a className="post" href={props.link}>
         <img src={props.images.standard_resolution.url}/>
         { props.type === 'video'
