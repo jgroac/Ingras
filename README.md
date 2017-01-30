@@ -2,7 +2,7 @@ InGras
 ================
 
 ### Description
-InGras is a Instagram clone writen in React/ Redux.
+InGras is a Instagram clone writen in React/ Redux, Bootstrap 4 & Sass.
 
 
 ### Requeriments
