@@ -24,6 +24,8 @@ class Profile extends Component {
             ? <ProfileHeader {...this.props.currentProfile}/>
             : null
           }
+        </div>
+        <div className="container post-container">
           { this.props.posts
             ? <ProfilePosts posts={this.props.posts} />
             : null

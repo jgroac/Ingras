@@ -6,7 +6,7 @@ const ProfileList = (props) => {
     <div className={`search-input__list-holder ${props.show ? 'd-block' : null}`}>
       <ul className="list__elements">
       { (props.users && props.users.length)
-        ? props.users.map( user => <PorfileListItem user={user} /> )
+        ? props.users.map( user => <PorfileListItem  key={user.id} user={user} /> )
         : <li className="pt-2 text-center" style={{fontSize: '13px'}}> No results found</li>
       }
 

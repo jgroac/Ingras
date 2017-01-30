@@ -25,6 +25,7 @@ export const receiveUserProfile = (profile) => ({
 
 export const fetchUserProfile = user => dispatch => {
   dispatch(requestUserProfile(user));
+  dispatch(fetchUserPosts(user));
   return request({
     url: `//api.instagram.com/v1/users/${user}/?access_token=${auth.getToken()}`,
     type: 'jsonp',
@@ -34,7 +35,6 @@ export const fetchUserProfile = user => dispatch => {
       dispatch(receiveUserProfile(response.data));
       return response.data;
     })
-    .then( data => dispatch(fetchUserPosts(data.id)))
     .catch( (error) => console.log(error));
 };
 

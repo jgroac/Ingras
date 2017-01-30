@@ -21,7 +21,7 @@ class Layout extends React.Component {
     return (
       <div className="container-fluid main-content">
         <Nav />
-        <div className="row p-5 content">
+        <div className="row pt-5 content">
           {this.props.children}
         </div>
         <Footer />

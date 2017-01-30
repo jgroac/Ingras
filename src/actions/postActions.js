@@ -24,6 +24,6 @@ export const fetchUserPosts = user => dispatch => {
     type: 'jsonp',
     method: 'get'
   })
-    .then( (response) => {console.log(response); dispatch(receiveUserMedia(response.data)); })
+    .then( response => dispatch(receiveUserMedia(response.data)))
     .catch( (error) => console.log(error));
 };

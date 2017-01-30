@@ -16,8 +16,8 @@ const Footer = (props) => {
   return (
     <footer className="container pb-5">
       <div className="row">
-        <div className="col-9">
-          <ul className="nav">
+        <div className="col-sm-9 col-12">
+          <ul className="nav d-block">
             {
               options.map((option, index) => {
                 return (
@@ -29,7 +29,7 @@ const Footer = (props) => {
             }
           </ul>
         </div>
-        <div className="col-3 text-right" style={{padding: '0.5rem 1rem'}}>
+        <div className="col-sm-3 col-12 text-right text-center-sm" style={{padding: '0.5rem 1rem'}}>
           <span>© 2017 INSTAGRAM</span>
         </div>
       </div>

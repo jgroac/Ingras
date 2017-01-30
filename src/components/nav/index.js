@@ -10,7 +10,7 @@ const Nav = (props) => {
       >
         <div className="container">
           <div className="row">
-            <div className="col">
+            <div className="col brand-sm">
               <Link to="/" className="navbar-brand brand-logo" href="#">Instagram</Link>
             </div>
             <div className="col justify-content-center">
