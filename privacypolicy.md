@@ -4,7 +4,7 @@ Ingras for Instagram (formerly Instagrab) is an mobile phone app providing regis
 
 This Privacy Policy describes how and when Ingras for Instagram collects, uses and shares your information when you use our Services. Ingras for Instagram receives your information through our APIs, applications and from our partners and other third parties. For example, you send us information when you use Ingras for Instagram app, or access Instagram from an application such as Ingras for Instagram Apps for iOS, or Android. When using any of our Services you consent to the collection, transfer, manipulation, storage, disclosure and other uses of your information as described in this Privacy Policy. Irrespective of which country you reside in or supply information from, you authorize Ingras for Instagram to use your information in Hong Kong and any other country where Ingras for Instagram operates.
 
-If you have any questions or comments about this Privacy Policy, please contact us at info@grabapp.co.
+
 
 Information Collection and Use
 
