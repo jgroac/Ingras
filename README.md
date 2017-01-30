@@ -1,8 +1,8 @@
-InsGran
+InGras
 ================
 
 ### Description
-InsGran is a Instagram clone writen in React/ Redux.
+InGras is a Instagram clone writen in React/ Redux.
 
 
 ### Requeriments
